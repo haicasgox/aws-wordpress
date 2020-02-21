@@ -1,0 +1,8 @@
+./.awscredentials
+./.git
+./.terraform
+./.visualstudiocode_files
+./.vscode
+*.tfstate
+*.tfstate.backup
+./.gitattributes
