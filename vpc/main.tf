@@ -62,32 +62,6 @@ resource "aws_route_table_association" "public_subnet1_rt_association" {
     route_table_id = "${aws_route_table.public_route_table.id}"
     depends_on = ["aws_route_table.public_route_table","aws_subnet.public_subnet"]
 }
-//Create a security group for Word Press server
-resource "aws_security_group" "wordpress_security_group" {
-    name = "wordpress_sg"
-    vpc_id = "${aws_vpc.main.id}"
-    ingress {
-        from_port = 80
-        to_port = 80
-        protocol = "tcp"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    ingress {
-        from_port = 22
-        to_port = 22
-        protocol = "ssh"
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    egress {
-        from_port = 0
-        to_port = 0
-        protocol = -1
-        cidr_blocks = ["0.0.0.0/0"]
-    }
-    tags  = {
-        Name = "wordpress_sg"
-    }
-}
 
 
 
